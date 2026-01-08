@@ -1,0 +1,173 @@
+body {
+  font-family: sans-serif;
+  margin: 0;
+  background-color: #f6f7f9;
+  color: #333;
+}
+
+.wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  top: 20vh;
+  position: relative;
+}
+
+.container {
+  min-height: 400px;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background: white;
+  border-radius: 0 0 8px 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  padding: 30px;
+}
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #1e1e2f;
+  border-radius: 8px 8px 0 0;
+  padding: 12px 20px;
+  color: white;
+  line-height: 1.75;
+}
+
+.navigation-left,
+.navigation-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.navigation a:not(.btn-logout) {
+  color: #f9f9f9;
+  text-decoration: none;
+  font-weight: 500;
+  transition: opacity 0.3s ease;
+}
+
+.navigation a.router-link--intermediate,
+.navigation a.router-link--active {
+  opacity: 1;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.navigation a:hover {
+  opacity: 0.8;
+}
+
+.btn-logout {
+  background: #ff4d4f;
+  border: none;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  text-decoration: none;
+  line-height: normal;
+  font-size: 0.8rem;
+}
+
+/* Animation styles */
+
+/* .fade1-leave-active, */
+.fade1-enter-active {
+  transition: opacity 0.5s ease;
+}
+
+.fade1-enter-from,
+.fade1-leave-to {
+  opacity: 0;
+}
+
+.task-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.task-item {
+  flex-basis: 30%;
+}
+
+.task-link {
+  display: block;
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  background-color: #f0f0f0;
+  padding: 40px 10px;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+  text-align: center;
+}
+
+.task-link:hover {
+  background-color: #e0e0e0;
+}
+
+.settings-tabs {
+  display: flex;
+  border-bottom: 1px solid #929292;
+  margin-bottom: 20px;
+}
+
+.settings-tab {
+  background-color: #f0f0f0;
+  color: #333;
+  padding: 8px 12px;
+  border-radius: 4px 4px 0 0;
+  text-decoration: none;
+  margin-right: 5px;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
+}
+
+.settings-tab.router-link--active {
+  background-color: #929292;
+  color: white;
+}
+
+.settings-tab:hover {
+  text-decoration: none;
+  background-color: #929292;
+  color: white;
+}
+
+.settings-panel {
+  margin: 30px 0;
+}
+
+.not-found {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.login {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.btn-login {
+  display: inline-block;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn-login:hover {
+  background-color: #0056b3;
+}

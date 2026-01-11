@@ -75,12 +75,12 @@ body {
 /* Animation styles */
 
 /* .fade1-leave-active, */
-.fade1-enter-active {
+.fade-enter-active {
   transition: opacity 0.5s ease;
 }
 
-.fade1-enter-from,
-.fade1-leave-to {
+.fade-enter-from,
+.fade-leave-to {
   opacity: 0;
 }
 

@@ -2,57 +2,58 @@ import DashboardView from '@/views/DashboardView.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 
 const router = createRouter({
-  linkActiveClass: 'router-link--intermediate',
-  linkExactActiveClass: 'router-link--active',
+  linkActiveClass: 'router-link--active',
+  linkExactActiveClass: 'router-link--intermediate',
 
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: '/',
       name: 'home',
-      redirect: '/dashboard',
-    },
-    {
-      path: '/dashboard',
-      name: 'dashboard',
+      path: '/',
       component: DashboardView,
     },
     {
-      path: '/tasks',
+      name: 'dashboard',
+      path: '/dashboard',
+      redirect: '/',
+    },
+    {
       name: 'tasks',
+      path: '/tasks',
       component: () => import('../views/TasksView.vue'),
     },
     {
-      path: '/tasks/:id',
       name: 'task',
+      path: '/tasks/:id',
+      props: true,
       component: () => import('../views/TaskDetailsView.vue'),
     },
     {
-      path: '/settings',
       name: 'settings',
+      path: '/settings',
       component: () => import('../views/SettingsView.vue'),
       children: [
-        { path: '', redirect: '/settings/profile' },
+        { path: '', redirect: '/settings/profile' }, //Полный путь от корня
         {
-          path: 'profile',
           name: 'profile',
+          path: 'profile',
           component: () => import('../views/ProfileView.vue'),
         },
         {
-          path: 'security',
           name: 'security',
+          path: 'security',
           component: () => import('../views/SecurityView.vue'),
         },
       ],
     },
     {
-      path: '/404',
       name: '404',
+      path: '/404',
       component: () => import('../views/NotFoundView.vue'),
     },
     {
-      path: '/:pathMatch(.*)*',
       name: 'NotFound',
+      path: '/:pathMatch(.*)*',
       // alias: '404',
       redirect: '/404',
     },

@@ -25,13 +25,19 @@ const lsKey = ref('__user-app-auth__')
 
 export const isLoggedIn = ref(false)
 
+export const auth = () => {
+  if (!localStorage.getItem(lsKey.value)) return
+
+  isLoggedIn.value = localStorage.getItem(lsKey.value) === 'true'
+}
+
 export const login = () => {
   isLoggedIn.value = true
-  localStorage.setItem(lsKey.value, isLoggedIn.value)
+  localStorage.setItem(lsKey.value, 'true')
 }
 
 export const logout = () => {
   isLoggedIn.value = false
   //alert(isLoggedIn.value)
-  localStorage.setItem(lsKey.value, isLoggedIn.value)
+  localStorage.setItem(lsKey.value, 'false')
 }

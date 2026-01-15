@@ -1,6 +1,7 @@
 <script setup>
 import { RouterLink, RouterView, useRouter } from 'vue-router'
-import { isLoggedIn, logout } from './auth'
+import { isLoggedIn, auth, logout } from './auth'
+import { onBeforeMount } from 'vue'
 
 const router = useRouter()
 // const { isLoggedIn, logout } = useAppAuth()
@@ -9,6 +10,10 @@ const onUserLogout = () => {
   logout()
   router.push('/login')
 }
+
+onBeforeMount(() => {
+  auth()
+})
 </script>
 
 <template>

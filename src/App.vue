@@ -1,5 +1,14 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
+import { RouterLink, RouterView, useRouter } from 'vue-router'
+import { isLoggedIn, logout } from './auth'
+
+const router = useRouter()
+// const { isLoggedIn, logout } = useAppAuth()
+
+const onUserLogout = () => {
+  logout()
+  router.push('/login')
+}
 </script>
 
 <template>
@@ -12,6 +21,10 @@ import { RouterLink, RouterView } from 'vue-router'
         <RouterLink to="/tasks">Tasks</RouterLink>
         <!-- <a href="./settings/profile.html">Settings</a> -->
         <RouterLink to="/settings">Settings</RouterLink>
+      </div>
+      <div class="navigation-right">
+        <RouterLink v-if="!isLoggedIn" to="/login"> Login</RouterLink>
+        <button v-else class="btn-logout" @click="onUserLogout">Logout</button>
       </div>
     </nav>
     <main class="container">
